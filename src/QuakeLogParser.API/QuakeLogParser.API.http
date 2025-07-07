@@ -1,0 +1,6 @@
+@QuakeLogParser.API_HostAddress = http://localhost:5267
+
+GET {{QuakeLogParser.API_HostAddress}}/
+Accept: application/json
+
+###
