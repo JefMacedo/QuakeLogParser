@@ -1,13 +1,15 @@
 ﻿using QuakeLogParser.Application.DTOs;
 using QuakeLogParser.Application.Interfaces;
+using System.IO;
 
 namespace QuakeLogParser.Infrastructure.Services;
 
 public class LogParserService : ILogParserService
 {
-    public IEnumerable<GameReportDto> ParseLogFile()
+    public IEnumerable<GameReportDto> ParseLogFile(string path)
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "../../../../../GameLog/games.log");
+        if (path == "games.log")
+            path = Path.Combine(AppContext.BaseDirectory, "../../../../../GameLog/games.log");
 
         if (!File.Exists(path))
             throw new FileNotFoundException($"Arquivo de log não encontrado em: {path}");

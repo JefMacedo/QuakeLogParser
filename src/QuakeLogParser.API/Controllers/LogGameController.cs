@@ -17,7 +17,7 @@ public class LogGameController : ControllerBase
     [HttpGet("games")]
     public IActionResult GetGames()
     {
-        var games = _parserService.ParseLogFile();
+        var games = _parserService.ParseLogFile("games.log");
         return Ok(games);
     }
 }
