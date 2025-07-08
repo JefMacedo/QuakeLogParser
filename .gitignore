@@ -105,13 +105,8 @@ StyleCopReport.xml
 *.tmp_proj
 *_wpftmp.csproj
 *.log
-!games.log
-!games_invalid.log
-!games_malformed.log
-!games_multiple.log
-!games_single.log
-!games_with_repeats.log
-!games_with_world.log
+!GameLog/*
+!sampleLog/*
 *.tlog
 *.vspscc
 *.vssscc
