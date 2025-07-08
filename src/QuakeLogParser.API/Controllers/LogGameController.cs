@@ -17,7 +17,18 @@ public class LogGameController : ControllerBase
     [HttpGet("games")]
     public IActionResult GetGames()
     {
-        var games = _parserService.ParseLogFile();
+        var games = _parserService.ParseLogFile("games.log");
         return Ok(games);
+    }
+
+    [HttpGet("games/{name}")]
+    public IActionResult GetGameByName(string name)
+    {
+        var game = _parserService.GetGameByName(name);
+
+        if (game == null)
+            return NotFound($"Jogo '{name}' não encontrado.");
+
+        return Ok(game);
     }
 }
